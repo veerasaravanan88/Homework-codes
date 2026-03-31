@@ -1,0 +1,100 @@
+class Greeting
+{
+  public static void main(String[]args)
+  {
+   System.out.println("Good Morning");
+
+
+
+  }
+2 
+ class Evening
+{
+  public static void main(String[]args)
+  {
+   System.out.println("Good Evening");
+
+
+
+  }
+3
+class Night 
+{
+  public static void main(String[]args)
+  {
+   System.out.println("Good Night");
+
+
+
+  }
+ 4
+class Java
+{
+ public static void main(String[]args)
+{
+ System.out.println("Java is powerful")
+  
+}
+
+  
+}
+5
+class Practice
+{
+ public static void main(String[]args)
+ {
+  System.out.println("Practice makes perfect")
+  
+ }
+}
+6
+class Success
+{
+ public static void main(String[]args)
+{
+ system.out.println("Success is yours");
+  
+}
+
+}
+7
+class Learn 
+{
+ public static void main(String[]args)
+{
+ system.out.println("Keep Learning");
+  
+}
+
+}
+8
+class Code
+{
+ public static void main(String[]args)
+{
+ system.out.println("Coding is fun");
+  
+}
+
+}
+9
+class Future
+{
+ public static void main(String[]args)
+{
+ system.out.println("Future Developer");
+  
+}
+
+}
+10
+class Aim
+{
+ public static void main(String[]args)
+{
+ system.out.println("Achieve your goals");
+  
+}
+
+
+}
