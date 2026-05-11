@@ -1,0 +1,193 @@
+import java.util.Scanner;
+
+public class MergeSortMenu {
+    static int[] arr;
+    static int n;
+    static Scanner sc = new Scanner(System.in);
+
+    // Merge Sort for Ascending
+    static void mergeSortAsc(int[] a, int left, int right) {
+        if (left < right) {
+            int mid = (left + right) / 2;
+
+            mergeSortAsc(a, left, mid);
+            mergeSortAsc(a, mid + 1, right);
+
+            mergeAsc(a, left, mid, right);
+        }
+    }
+
+    static void mergeAsc(int[] a, int left, int mid, int right) {
+        int n1 = mid - left + 1;
+        int n2 = right - mid;
+
+        int[] L = new int[n1];
+        int[] R = new int[n2];
+
+        for (int i = 0; i < n1; i++)
+            L[i] = a[left + i];
+
+        for (int j = 0; j < n2; j++)
+            R[j] = a[mid + 1 + j];
+
+        int i = 0, j = 0, k = left;
+
+        while (i < n1 && j < n2) {
+            if (L[i] <= R[j])
+                a[k++] = L[i++];
+            else
+                a[k++] = R[j++];
+        }
+
+        while (i < n1)
+            a[k++] = L[i++];
+
+        while (j < n2)
+            a[k++] = R[j++];
+    }
+
+    // Merge Sort for Descending
+    static void mergeSortDesc(int[] a, int left, int right) {
+        if (left < right) {
+            int mid = (left + right) / 2;
+
+            mergeSortDesc(a, left, mid);
+            mergeSortDesc(a, mid + 1, right);
+
+            mergeDesc(a, left, mid, right);
+        }
+    }
+
+    static void mergeDesc(int[] a, int left, int mid, int right) {
+        int n1 = mid - left + 1;
+        int n2 = right - mid;
+
+        int[] L = new int[n1];
+        int[] R = new int[n2];
+
+        for (int i = 0; i < n1; i++)
+            L[i] = a[left + i];
+
+        for (int j = 0; j < n2; j++)
+            R[j] = a[mid + 1 + j];
+
+        int i = 0, j = 0, k = left;
+
+        while (i < n1 && j < n2) {
+            if (L[i] >= R[j])
+                a[k++] = L[i++];
+            else
+                a[k++] = R[j++];
+        }
+
+        while (i < n1)
+            a[k++] = L[i++];
+
+        while (j < n2)
+            a[k++] = R[j++];
+    }
+
+    // Find Median
+    static void findMedian() {
+        if (arr == null) {
+            System.out.println("Please enter the array first.");
+            return;
+        }
+
+        // Sort array in ascending order before finding median
+        mergeSortAsc(arr, 0, n - 1);
+
+        double median;
+        if (n % 2 == 1) {
+            median = arr[n / 2];
+        } else {
+            median = (arr[n / 2 - 1] + arr[n / 2]) / 2.0;
+        }
+
+        System.out.println("Median = " + median);
+    }
+
+    // Display Array
+    static void displayArray() {
+        if (arr == null) {
+            System.out.println("Please enter the array first.");
+            return;
+        }
+
+        System.out.print("Array Elements: ");
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+    }
+
+    // Enter Array
+    static void enterArray() {
+        System.out.print("Enter number of elements: ");
+        n = sc.nextInt();
+
+        arr = new int[n];
+
+        System.out.println("Enter " + n + " elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+    }
+
+    // Main Method
+    public static void main(String[] args) {
+        int choice;
+
+        do {
+            System.out.println("\n===== Merge Sort Menu =====");
+            System.out.println("1. Enter Array");
+            System.out.println("2. Sort in Ascending Order");
+            System.out.println("3. Sort in Descending Order");
+            System.out.println("4. Find Median");
+            System.out.println("5. Display Array");
+            System.out.println("6. Exit");
+            System.out.print("Enter your choice: ");
+            choice = sc.nextInt();
+
+            switch (choice) {
+                case 1:
+                    enterArray();
+                    break;
+
+                case 2:
+                    if (arr == null)
+                        System.out.println("Please enter the array first.");
+                    else {
+                        mergeSortAsc(arr, 0, n - 1);
+                        System.out.println("Array sorted in ascending order.");
+                    }
+                    break;
+
+                case 3:
+                    if (arr == null)
+                        System.out.println("Please enter the array first.");
+                    else {
+                        mergeSortDesc(arr, 0, n - 1);
+                        System.out.println("Array sorted in descending order.");
+                    }
+                    break;
+
+                case 4:
+                    findMedian();
+                    break;
+
+                case 5:
+                    displayArray();
+                    break;
+
+                case 6:
+                    System.out.println("Exiting program...");
+                    break;
+
+                default:
+                    System.out.println("Invalid choice!");
+            }
+
+        } while (choice != 6);
+    }
+}
