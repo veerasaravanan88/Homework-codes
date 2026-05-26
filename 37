@@ -1,0 +1,42 @@
+class Node {
+    int data;
+    Node prev;
+    Node next;
+
+    Node(int data) {
+        this.data = data;
+        prev = null;
+        next = null;
+    }
+}
+
+class CircularDoublyLinkedList {
+    Node head;
+
+    
+    void insertHead(int data) {
+        Node newNode = new Node(data);
+
+      
+        if (head == null) {
+            head = newNode;
+            head.next = head;
+            head.prev = head;
+            return;
+        }
+
+        Node tail = head.prev;
+
+        newNode.next = head;
+        newNode.prev = tail;
+
+        tail.next = newNode;
+        head.prev = newNode;
+
+        head = newNode;
+    }
+
+    void insertTail(int data) {
+        Node newNode = new Node(data);
+
+        
