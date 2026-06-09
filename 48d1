@@ -1,0 +1,74 @@
+import java.util.Scanner;
+
+class Calculator<T extends Number> {
+
+    public double add(T a, T b) {
+        return a.doubleValue() + b.doubleValue();
+    }
+
+    public double subtract(T a, T b) {
+        return a.doubleValue() - b.doubleValue();
+    }
+}
+
+public class GenericCalculator {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("\n--- Generic Calculator ---");
+            System.out.println("1. Add");
+            System.out.println("2. Subtract");
+            System.out.println("3. Exit");
+            System.out.print("Enter choice: ");
+
+            int choice = sc.nextInt();
+
+            if (choice == 3) {
+                System.out.println("Exiting...");
+                break;
+            }
+
+            System.out.println("Select Data Type:");
+            System.out.println("1. Integer");
+            System.out.println("2. Double");
+            int type = sc.nextInt();
+
+            switch (type) {
+                case 1:
+                    Calculator<Integer> intCalc = new Calculator<>();
+
+                    System.out.print("Enter first number: ");
+                    int a = sc.nextInt();
+
+                    System.out.print("Enter second number: ");
+                    int b = sc.nextInt();
+
+                    if (choice == 1)
+                        System.out.println("Result = " + intCalc.add(a, b));
+                    else if (choice == 2)
+                        System.out.println("Result = " + intCalc.subtract(a, b));
+                    break;
+
+                case 2:
+                    Calculator<Double> doubleCalc = new Calculator<>();
+
+                    System.out.print("Enter first number: ");
+                    double x = sc.nextDouble();
+
+                    System.out.print("Enter second number: ");
+                    double y = sc.nextDouble();
+
+                    if (choice == 1)
+                        System.out.println("Result = " + doubleCalc.add(x, y));
+                    else if (choice == 2)
+                        System.out.println("Result = " + doubleCalc.subtract(x, y));
+                    break;
+
+                default:
+                    System.out.println("Invalid Data Type!");
+            }
+        }
+        sc.close();
+    }
+}
