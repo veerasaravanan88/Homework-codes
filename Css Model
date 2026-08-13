@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .box {
+            width: 200px;              
+            padding: 30px;             
+            border: 10px solid blue;  
+          margin: 40px auto;         
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>CSS Box Model</h1>
+
+    <div class="box">
+         Content Field
+    </div>
+
+</body>
+</html>C
