@@ -1,0 +1,45 @@
+let name = "Arun";
+let age = 20;
+let city = "Madurai";
+
+console.log(name, age, city);
+
+
+let a = 10;
+let b = 5;
+
+let sum = a + b;
+
+console.log("Sum =", sum);
+
+
+var x = "I am var";
+let y = "I am let";
+const z = "I am const";
+
+function testScope() {
+    console.log(x); // Accessible
+    console.log(y); // Accessible
+    console.log(z); // Accessible
+
+    if (true) {
+        var a = "var inside block";
+        let b = "let inside block";
+        const c = "const inside block";
+
+        console.log(a);
+        console.log(b); 
+        console.log(c);
+    }
+
+    console.log(a); // Accessible
+    // console.log(b); 
+    // console.log(c); 
+}
+
+testScope();
+
+console.log(x); 
+console.log(y); 
+console.log(z); 
+
