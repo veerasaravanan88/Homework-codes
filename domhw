@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM Menu</title>
+</head>
+<body>
+
+    <h2 id="text">Hello! This is DOM text.</h2>
+
+    <input type="number" id="num1" placeholder="Enter first number">
+    <input type="number" id="num2" placeholder="Enter second number">
+
+    <br><br>
+
+    <button onclick="menu()">Open Menu</button>
+
+    <p id="result"></p>
+
+    <script>
+        function menu() {
+
+            let choice = prompt(
+                "MENU\n" +
+                "1. Read text from DOM\n" +
+                "2. Add two numbers from DOM\n" +
+                "3. Change CSS using DOM\n" +
+                "4. Exit\n\n" +
+                "Enter your choice:"
+            );
+
+            switch (choice) {
+
+                case "1":
+                    let text = document.getElementById("text").innerText;
+                    document.getElementById("result").innerText =
+                        "Text: " + text;
+                    break;
+
+                case "2":
+                    let n1 = Number(document.getElementById("num1").value);
+                    let n2 = Number(document.getElementById("num2").value);
+
+                    let sum = n1 + n2;
+
+                    document.getElementById("result").innerText =
+                        "Sum = " + sum;
+                    break;
+
+                case "3":
+                    document.getElementById("text").style.color = "red";
+                    document.getElementById("text").style.fontSize = "30px";
+
+                    document.getElementById("result").innerText =
+                        "CSS changed successfully!";
+                    break;
+
+                case "4":
+                    document.getElementById("result").innerText =
+                        "Program Exited";
+                    break;
+
+                default:
+                    document.getElementById("result").innerText =
+                        "Invalid choice!";
+            }
+        }
+    </script>
+
+</body>
+</html>
